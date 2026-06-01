@@ -16,5 +16,4 @@ public class OrderDetailResult
 
     [JsonPropertyName("單價")]
     public decimal UnitPrice {get; set;}
-
 }

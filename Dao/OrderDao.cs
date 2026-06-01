@@ -24,9 +24,14 @@ public class OrderDao
                 od.Quantity
 
             FROM Orders o
-            JOIN [Order Details] od ON o.OrderId = od.OrderID
-            JOIN Products pd ON od.ProductID = pd.ProductID
-            WHERE o.OrderID=@OrderId
+            
+            JOIN [Order Details] od 
+            ON o.OrderId = od.OrderID
+            
+            JOIN Products pd 
+            ON od.ProductID = pd.ProductID
+            
+            WHERE o.OrderId=@OrderId
         ";
         
         OrderResult? orderResult = null;

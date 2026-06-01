@@ -1,4 +1,3 @@
-using System.ComponentModel.Design;
 using Microsoft.Data.SqlClient;
 using PracticeForCSharp.Models;
 

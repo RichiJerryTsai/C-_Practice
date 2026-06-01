@@ -48,5 +48,4 @@ while (true)
        Console.WriteLine("結束查詢");
        break;
     }
-
 }
