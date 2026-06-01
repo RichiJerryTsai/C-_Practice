@@ -41,7 +41,7 @@ while (true)
 
     Console.WriteLine(JsonSerializer.Serialize(order, options));
     Console.WriteLine("輸入任意鍵查詢下一筆，或輸入「end」結束程式...");
-    var nextAction = Console.ReadKey();
+    var nextAction = Console.ReadLine();
 
     if (nextAction?.ToLower() == "end")
     {
