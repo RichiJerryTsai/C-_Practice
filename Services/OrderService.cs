@@ -28,12 +28,16 @@ public class OrderService
             OrderId=orderId,
         });
         
+        /*
         decimal total = 0;
         foreach (var detail in order.OrderDetails)
         {
             total += detail.Quantity * detail.UnitPrice;
         }
         order.TotalAmount = total;
+        */
+
+        order.TotalAmount = order.OrderDetails.Sum(detail => detail.Quantity * detail.UnitPrice);
 
         return order;
     }
