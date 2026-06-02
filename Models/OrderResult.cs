@@ -19,5 +19,4 @@ public class OrderResult
     [JsonPropertyName("訂購商品清單")]
 
     public List<OrderDetailResult> OrderDetails { get; set;} = new();
-
 }

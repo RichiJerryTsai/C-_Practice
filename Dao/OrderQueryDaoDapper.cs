@@ -1,13 +1,14 @@
 using Microsoft.Data.SqlClient;
 using PracticeForCSharp.Models;
+using Dapper;
 
 namespace PracticeForCSharp.Dao;
 
-public class OrderQueryDao
+public class OrderQueryDaoDapper : IOrderQueryDao
 {
     private readonly string _connectionString;
 
-    public OrderQueryDao(string connectionstring)
+    public OrderQueryDaoDapper(string connectionstring)
     {
         _connectionString = connectionstring;
     }
@@ -23,16 +24,10 @@ public class OrderQueryDao
                 INSERT INTO OrderQueryLogs(OrderId, QueryTime)
                 VALUES(@OrderId, @QueryTime)
         ";
-
+        log.QueryTime=DateTime.Now;
+        
         using var connection = new SqlConnection(_connectionString);
-        using var command = new SqlCommand(sql, connection);
-        log.QueryTime = DateTime.Now;
-
-        command.Parameters.AddWithValue("@OrderId", log.OrderId);
-        command.Parameters.AddWithValue("@QueryTime", log.QueryTime);
-
-        connection.Open();
-        command.ExecuteNonQuery();
+        connection.Execute(sql, log);
     }
 }
 

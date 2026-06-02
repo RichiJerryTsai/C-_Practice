@@ -5,11 +5,11 @@ using Microsoft.Extensions.Logging;
 namespace PracticeForCSharp.Services;
 public class OrderService
 {
-    private readonly OrderDao _dao;
+    private readonly IOrderDao _dao;
 
-    private readonly OrderQueryDao _logDao;
+    private readonly IOrderQueryDao _logDao;
 
-    public OrderService(OrderDao dao, OrderQueryDao logDao)
+    public OrderService(IOrderDao dao, IOrderQueryDao logDao)
     {
         _dao = dao;
         _logDao = logDao;

@@ -1,13 +1,14 @@
 using Microsoft.Data.SqlClient;
 using PracticeForCSharp.Models;
+using Dapper;
 
 namespace PracticeForCSharp.Dao;
 
-public class OrderDao
+public class OrderDaoAdoNet : IOrderDao
 {
     private readonly string _connectionString;
 
-    public OrderDao(string connectionString)
+    public OrderDaoAdoNet(string connectionString)
     {
         _connectionString = connectionString;
     }
