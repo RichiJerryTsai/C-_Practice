@@ -9,12 +9,14 @@ var configuration  = new ConfigurationBuilder()
     .Build();
 
 var connectionString = configuration.GetConnectionString("DefaultConnection")!;
-
+//ADO.NET 版本
 IOrderDao orderDao = new OrderDaoAdoNet(connectionString);
-//IOrderDao orderDao = new OrderDaoDapper(connectionString);
-
 IOrderQueryDao orderQueryDao = new OrderQueryDaoAdoNet(connectionString);
-//IOrderQueryDao orderQueryDao = new OrderQueryDaoDapper(connectionString);
+
+//Dapper 版本 
+/*IOrderDao orderDao = new OrderDaoDapper(connectionString);
+IOrderQueryDao orderQueryDao = new OrderQueryDaoDapper(connectionString);
+*/
 
 var orderService = new OrderService(orderDao, orderQueryDao);
 
